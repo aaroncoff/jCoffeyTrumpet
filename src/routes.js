@@ -2,13 +2,18 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import App from './App';
 import Question from './Components/Qinput';
+import Answer from './Components/qAnswers';
+import Dashboard from './Dashboard';
+import QaHome from './qaHome';
 
 
 
 const routes = (
     <Switch>
-        <Route path = '/quesans' component={Question}/>
         <Route exact path ='/' component={App}/>
+        <Route path = '/qahome' component={QaHome}/>
+        <Route path = '/questions' component={Question}/>
+        <Route path = '/dashboard' component={Dashboard}/>
     </Switch>
 );
 

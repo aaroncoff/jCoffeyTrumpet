@@ -3,10 +3,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const controller = require('./controller');
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
 const PORT = 3400;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 14
+    }
+}))
 
 massive( process.env.CONNECTION_STRING).then( dbInstance => {
     app.set('db', dbInstance);
@@ -14,7 +24,12 @@ massive( process.env.CONNECTION_STRING).then( dbInstance => {
 
 
 app.get(`/api/questions`, controller.getQuestions);
+app.get('/api/newQuestions', controller.getNewQuestions);
+app.get('/api/answeredQ', controller.getAnsweredQuestions);
 app.post(`/api/questions`, controller.addQuestion);
+app.post(`/api/answerQues`, controller.answerQues);
+app.post(`/api/register`, controller.register);
+app.post('/api/login', controller.login);
 
 
 app.listen(PORT, () => console.log(`Server listening on Port:${PORT}`));

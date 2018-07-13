@@ -1,4 +1,4 @@
-INSERT INTO questions (name, body)
-VALUES ($1, $2)
-RETURNING *;
+INSERT INTO questions (body)
+VALUES ($1);
+SELECT * FROM questions;
 

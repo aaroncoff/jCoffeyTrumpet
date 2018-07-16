@@ -99,16 +99,26 @@ module.exports = {
 
     answerQues: (req, res) => {
         console.log('-----------answerQues hitting')
-        const {answer, body} = req.body.m
-        console.log(answer, body);
+        const {newAnswer, body} = req.body.m
+        console.log(newAnswer, body);
         const dbInstance = req.app.get('db')
-        dbInstance.post_new_answer([answer, body]).then(answers => {
+        dbInstance.post_new_answer([newAnswer, body]).then(answers => {
             console.log(answers);
             res.send(answers)
         }).catch(err => {
             console.log('--------post new answer backend error', err)
             res.send('posted new answer')
         })
+    },
+
+    deleteQuestion: (req, res) =>{
+        console.log('-------deleteQuestion hitting from backend')
+        const dbInstance = req.app.get('db')
+        const {body} = req.params
+        dbInstance.delete_question(body).then(questions => {
+            console.log(body, "deleting")
+            res.send(questions)
+        }).catch(err => console.log("deleteQuestion controller error", err))
     }
 
     

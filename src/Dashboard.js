@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Answer from './Components/qAnswers';
 import axios from 'axios';
+import updateQ from './Components/UpdateQ';
+import { Link } from 'react-router-dom';
 
 
 export default class Dashboard extends Component{
@@ -86,9 +88,22 @@ export default class Dashboard extends Component{
         })
     }
 
-    deleteQuestion(body){
-        console.log(body)
-       axios.delete(`/api/deleteQ/${body}`).then(response => {
+    updateQuestion = (id) => {
+        console.log(this.state.projects)
+        axios.all([
+            axios.put(`/api/questions${id}`),
+            axios.delete(`/api/deleteQ${id}`)
+        ]).then(response => {
+           console.log('axios all update hit', response) 
+           this.setState({
+               projects: response.data
+           })
+        })
+    }
+
+    deleteQuestion(id){
+        console.log(id)
+       axios.delete(`/api/deleteQ/${id}`).then(response => {
             console.log("---------axios delete question hit", response)
 
            
@@ -109,6 +124,7 @@ export default class Dashboard extends Component{
                    Question: {p.body}
                    Answer: <textarea placeholder="Answer" onChange={(e, i) => this.answer(e, i)}/>
                             <button onClick={() => this.submitAnswer(p)}>Submit</button>
+                            
                 </div>
             )
         })
@@ -118,7 +134,8 @@ export default class Dashboard extends Component{
                 <div key={i}>
                    Question: {e.body}
                    Answer: {e.answer}
-                   <button onClick={()=>this.deleteQuestion(e.body)}>Delete</button>
+                   <button onClick={()=>this.deleteQuestion(e.id)}>Delete</button>
+                   <button><Link to={{pathname: "/updateQ", state: e}}>Update Question</Link></button>
                    
                   
                 </div>

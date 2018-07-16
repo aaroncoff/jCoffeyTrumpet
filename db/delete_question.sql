@@ -1,2 +1,2 @@
-DELETE FROM questions WHERE body = $1;
+DELETE FROM questions WHERE id = $1;
 SELECT * FROM questions;

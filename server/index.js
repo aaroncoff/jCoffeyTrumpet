@@ -30,7 +30,8 @@ app.post(`/api/questions`, controller.addQuestion);
 app.post(`/api/answerQues`, controller.answerQues);
 app.post(`/api/register`, controller.register);
 app.post('/api/login', controller.login);
-app.delete(`/api/deleteQ/:body`, controller.deleteQuestion);
+app.put('/api/questions/:id', controller.updateQuestion);
+app.delete(`/api/deleteQ/:id`, controller.deleteQuestion);
 
 
 app.listen(PORT, () => console.log(`Server listening on Port:${PORT}`));

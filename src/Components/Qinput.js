@@ -54,9 +54,9 @@ class Question extends Component {
                         <div key={i}>
                             
                             
-                            {answeredQ.body}
+                            Question: {answeredQ.body}
                             {" "}
-                            {answeredQ.answer}
+                            Answer: {answeredQ.answer}
 
                         </div>
                     )

@@ -111,12 +111,23 @@ module.exports = {
         })
     },
 
+    updateQuestion: (req, res) => {
+        const dbInstance=req.app.get('db')
+        const {id} = req.params
+        console.log(req.body.body, req.body.answer, id)
+        dbInstance.update_question([id, req.body.body, req.body.answer
+        ]).then( response => {
+            console.log(id);
+            res.status(200).send(response)
+        }).catch(err => console.log("update question controller error", err))
+    },
+
     deleteQuestion: (req, res) =>{
         console.log('-------deleteQuestion hitting from backend')
         const dbInstance = req.app.get('db')
-        const {body} = req.params
-        dbInstance.delete_question(body).then(questions => {
-            console.log(body, "deleting")
+        const {id} = req.params
+        dbInstance.delete_question(id).then(questions => {
+            console.log(id, "deleting")
             res.send(questions)
         }).catch(err => console.log("deleteQuestion controller error", err))
     }

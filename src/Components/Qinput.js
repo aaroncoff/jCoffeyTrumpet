@@ -41,7 +41,7 @@ class Question extends Component {
             <form>
                 
                 
-                <textarea className="body" value={this.state.body} placeholder="Question Body" onChange={(e) => this.setState({body: e.target.value})} ></textarea>
+                <textarea className="body" value={this.state.body} placeholder="Ask Josh a Question" onChange={(e) => this.setState({body: e.target.value})} ></textarea>
                 <button onClick={(e) => this.submit(e)}>Submit</button>
 
                 <div>

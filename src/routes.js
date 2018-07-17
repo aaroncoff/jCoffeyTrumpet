@@ -7,6 +7,9 @@ import Dashboard from './Dashboard';
 import QaHome from './qaHome';
 import updateQ from './Components/UpdateQ';
 import Media from './NavComp/Media';
+import UserDash from './Components/UserDash';
+import Contact from './Contact';
+import About from './NavComp/About';
 
 
 
@@ -15,9 +18,12 @@ const routes = (
         <Route exact path ='/' component={App}/>
         <Route path = '/qahome' component={QaHome}/>
         <Route path = '/Music' component={Media}/>
+        <Route path = '/Contact' component={Contact}/>
+        <Route path = '/About' component={About}/>
         <Route path = '/questions' component={Question}/>
         <Route path = '/dashboard' component={Dashboard}/>
         <Route path = '/updateQ' component={updateQ}/>
+        <Route path = '/userdash' component={UserDash}/>
     </Switch>
 );
 

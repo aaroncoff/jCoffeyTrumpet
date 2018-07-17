@@ -15,8 +15,11 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Link to='/qahome'>Ask Josh</Link>
-        <Link to='/Music'>Josh's Music</Link>
+        <Link to='/'>Home | </Link>
+        <Link to='/qahome'>Ask Josh | </Link>
+        <Link to='/Music'>Josh's Music | </Link>
+        <Link to='/Contact'>Request a Lesson or Gig | </Link>
+        <Link to='/About'>About Josh</Link>
         
         {routes}
         

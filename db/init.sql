@@ -3,3 +3,9 @@ CREATE TABLE trumpet_users (
     username VARCHAR UNIQUE,
     password VARCHAR
 );
+
+CREATE TABLE questions (
+    id SERIAL PRIMARY KEY,
+    body VARCHAR,
+    answer VARCHAR
+);

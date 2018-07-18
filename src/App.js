@@ -9,6 +9,8 @@ import Register from './Components/Admin_register';
 import routes from './routes';
 import { Link } from 'react-router-dom';
 
+//30boxesAPIkEY = 8541387-004cc08e200934c2c3f5e46a12ba2625 
+
 
 class App extends Component {
   render() {
@@ -19,7 +21,8 @@ class App extends Component {
         <Link to='/qahome'>Ask Josh | </Link>
         <Link to='/Music'>Josh's Music | </Link>
         <Link to='/Contact'>Request a Lesson or Gig | </Link>
-        <Link to='/About'>About Josh</Link>
+        <Link to='/About'>About Josh |</Link>
+        <Link to='/Login'>Login</Link>
         
         {routes}
         

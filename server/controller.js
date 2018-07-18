@@ -45,6 +45,7 @@ module.exports = {
     logout(req, res){
         req.session.destroy();
     },
+    
 
     getQuestions: (req, res) => {
         const dbInstance = req.app.get('db')

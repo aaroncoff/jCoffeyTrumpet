@@ -4,6 +4,10 @@ import axios from 'axios';
 import updateQ from './Components/UpdateQ';
 import { Link } from 'react-router-dom';
 
+//google calendar
+//client id = 224735195017-dpmkfvl9rqv4bjkjc9mu666kg0gp9g52.apps.googleusercontent.com
+//client secret = hQm9DsyO0IN0Xy-v0aKDJAXp
+
 
 export default class Dashboard extends Component{
     constructor(){
@@ -144,6 +148,7 @@ export default class Dashboard extends Component{
         
         return(
             <div>
+                <h1>Dashboard</h1>
                *** New Questions ***
                 {DispNewQ}
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
 
-class Auth extends Component {
+class UserAuth extends Component {
     constructor() {
         super();
         this.state = {
@@ -49,4 +49,4 @@ class Auth extends Component {
     }
 }
 
-export default withRouter(Auth);
+export default withRouter(UserAuth);

@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+//firstname
+//lastname
+//email
+//birthday
+
+
+
 export default class Register extends Component {
     constructor() {
         super();

@@ -10,6 +10,7 @@ import Media from './NavComp/Media';
 import UserDash from './Components/UserDash';
 import Contact from './Contact';
 import About from './NavComp/About';
+import Login from './NavComp/Login';
 
 
 
@@ -20,6 +21,7 @@ const routes = (
         <Route path = '/Music' component={Media}/>
         <Route path = '/Contact' component={Contact}/>
         <Route path = '/About' component={About}/>
+        <Route path = '/Login' component={Login}/>
         <Route path = '/questions' component={Question}/>
         <Route path = '/dashboard' component={Dashboard}/>
         <Route path = '/updateQ' component={updateQ}/>

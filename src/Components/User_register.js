@@ -8,11 +8,11 @@ import axios from 'axios';
 
 
 
-export default class Register extends Component {
+export default class UserRegister extends Component {
     constructor() {
         super();
         this.state = {
-            username: '',
+            email: '',
             password: '',
             showRegister: false,
             message: null,
@@ -27,8 +27,9 @@ export default class Register extends Component {
     handleRegPassword(val) {
         this.setState({password: val});
     }
-    handleRegUsername(val) {
-        this.setState({username: val});
+
+    handleRegEmail(val) {
+        this.setState({email: val})
     }
     // handleRegEmail(val) {
     //     this.setState({email: val});
@@ -49,27 +50,27 @@ export default class Register extends Component {
     register = (e) => {
         e.preventDefault();
         this.setState({message: null });
-        const username = this.state.username;
         const password = this.state.password;
+        const email = this.state.email;
         axios.post(`/api/register`, {
-            username,
-            password
+            email,
+            password,
         }).then(response => {
-            this.setState({ username: response.data});
+            this.setState({ email: response.data});
         }).catch(err => {
             this.setState({message: 'Something went wrong: ' + this.getMessage(err)})
         })
     }
 
     render() {
-        const { username, password } = this.state;
+        const { email, password } = this.state;
         return (
             <div>
                 <form>
-                    <input type='text' onChange={e => this.handleRegUsername(e.target.value)} placeholder='username' value={username}/>
+                    <input type='text' onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/>
                     {/* <input type='text' onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/> */}
                     <input type='password' onChange={e => this.handleRegPassword(e.target.value)} placeholder='password' value={password}/>
-                    <button onClick={(e) => this.register(e)}>Register</button>
+                    <button onClick={(e) => this.register(e)}>User Register</button>
                 </form>
             </div>
         );

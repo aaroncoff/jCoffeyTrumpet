@@ -36,6 +36,7 @@ app.get(`/api/questions`, controller.getQuestions);
 app.get('/api/newQuestions', controller.getNewQuestions);
 app.get('/api/answeredQ', controller.getAnsweredQuestions);
 app.post(`/api/questions`, controller.addQuestion);
+app.get('/api/questions/:id', controller.getUserQuestions);
 app.post(`/api/answerQues`, controller.answerQues);
 app.post(`/api/sendEmail`, emailController.sendEmail);
 app.post(`/api/register`, controller.register);

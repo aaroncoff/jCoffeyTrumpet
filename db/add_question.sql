@@ -1,4 +1,4 @@
-INSERT INTO questions (body)
-VALUES ($1);
+INSERT INTO questions (userId, body)
+VALUES ($1, $2);
 SELECT * FROM questions;
 

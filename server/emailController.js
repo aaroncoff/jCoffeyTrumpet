@@ -14,7 +14,7 @@ module.exports = {
             auth: {
                 // xoauth2: xoauth2.createXOAUth2Generator({
                     user: process.env.NODEMAILER_ADDRESS,
-                    password: process.env.NODEMAILER_PASSWORD,
+                    pass: process.env.NODEMAILER_PASSWORD,
                     // clientId: '1035148877305-q0cfv2ucgpvgl9kiek07fpe7uvr6f825.apps.googleusercontent.com',
                     // clientSecret: 'Xxx72MtczOBK8XyWBn6ShM13',
                     // refreshToken: '',

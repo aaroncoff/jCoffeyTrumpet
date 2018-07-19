@@ -1,0 +1,1 @@
+SELECT * FROM questions WHERE questions.userId = $1;

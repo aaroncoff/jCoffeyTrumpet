@@ -1,2 +1,2 @@
-SELECT * FROM trumpet_users WHERE username = $1
+SELECT * FROM trumpet_users WHERE email = $1
 LIMIT 1;

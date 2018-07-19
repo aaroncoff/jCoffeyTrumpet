@@ -7,20 +7,20 @@ class UserAuth extends Component {
         super();
         this.state = {
             user: null,
-            username: '',
+            email: '',
             password: ''
         }
     }
     handleLoginName(val) {
-        this.setState({username: val});
+        this.setState({email: val});
     }
     handlePassword(val) {
         this.setState({password: val});
     }
     login(e) {
         e.preventDefault();
-        const { username, password } = this.state;
-        axios.post('/api/login', { username, password })
+        const { email, password } = this.state;
+        axios.post('/api/login', { email, password })
         .then(res => {
             //below not hitting
             console.log('login method hitting', this.props)
@@ -40,7 +40,7 @@ class UserAuth extends Component {
                         <form>
                             <input type='text' onChange={e => this.handleLoginName(e.target.value)} placeholder="login name"/>
                             <input type='password' onChange={e => this.handlePassword(e.target.value)} placeholder="password"/>
-                            <button className='auth-login-btn' onClick={(e) => this.login(e)}>Login</button>
+                            <button className='auth-login-btn' onClick={(e) => this.login(e)}>User Login</button>
                         </form>
                     </div>
                 </div>

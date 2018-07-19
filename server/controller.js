@@ -5,16 +5,17 @@ module.exports = {
 
     register(req, res) {
         const dbInstance = req.app.get('db');
-        const { username, password } = req.body;
+        const { email, password } = req.body;
         console.log('req.body', req.body);
         bcrypt.hash(password, saltRounds).then(hashedPassword => {
             let user = {
-                username,
+                email: email,
                 password: hashedPassword
+                
             }
             console.log('New User', user);
-            dbInstance.create_user([username, hashedPassword]).then(() => {
-                req.session.user = { username };
+            dbInstance.create_user([email, hashedPassword]).then(() => {
+                req.session.user = { email };
                 res.status(200).json({user: req.session.user});
             }).catch(err => console.log('registration error', err));
         }).catch(err => console.log('Bcrypt hashing error', err));
@@ -22,9 +23,9 @@ module.exports = {
     
     login(req,res) {
         const dbInstance = req.app.get('db');
-        const { username, password } = req.body;
+        const { email, password } = req.body;
         console.log('req.body login', req.body);
-        dbInstance.find_user(username).then(users => {
+        dbInstance.find_user(email).then(users => {
             console.log('users', users);
             if(users.length) {
                 let userData = users[0]
@@ -58,8 +59,11 @@ module.exports = {
     addQuestion: (req, res) => {
         console.log(req.body)
         const dbInstance = req.app.get('db')
-        const {body} = req.body
-        dbInstance.add_question([body]).then( questions => {
+        const {data} = req.body
+        dbInstance.add_question({
+            userId: req.session.user.userId,
+            body: data.body
+        }).then( questions => {
             console.log('1', questions);
             res.send(questions);
     })
@@ -80,12 +84,24 @@ module.exports = {
                console.log(questions);
                res.send(questions)
            }).catch(err => {
-               console.log('get proj by spons error from backend', err)
+               console.log('get new questions error from backend', err)
                res.send('get new questions error from backend')
            })
         // }
     },
 
+    getUserQuestions: (req, res) => {
+        console.log('-----getUswerQuestion hitting')
+        const dbInstance = req.app.get('db')
+        const {userId} = req.session.user
+        dbInstance.get_question_user_join(userId).then(questions => {
+            console.log(questions);
+            res.send(questions)
+        }).catch(err => {
+            console.log('get questions by user err', err)
+            res.send('get questions by user error')
+        })
+    },
     getAnsweredQuestions: (req, res) => {
         console.log('----------------getAnsweredQuestions hitting')
         const dbInstance = req.app.get('db')

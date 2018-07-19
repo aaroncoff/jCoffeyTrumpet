@@ -6,6 +6,10 @@ CREATE TABLE trumpet_users (
 
 CREATE TABLE questions (
     id SERIAL PRIMARY KEY,
+    userId INT,
     body VARCHAR,
     answer VARCHAR
 );
+
+ALTER TABLE trumpet_users
+ADD email varchar;

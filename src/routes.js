@@ -11,6 +11,7 @@ import UserDash from './Components/UserDash';
 import Contact from './Contact';
 import About from './NavComp/About';
 import Login from './NavComp/Login';
+import NavDash from './NavComp/MyDash';
 
 
 
@@ -26,6 +27,7 @@ const routes = (
         <Route path = '/dashboard' component={Dashboard}/>
         <Route path = '/updateQ' component={updateQ}/>
         <Route path = '/userdash' component={UserDash}/>
+        <Route path = '/Dash' component={NavDash}/>
     </Switch>
 );
 

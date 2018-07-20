@@ -16,19 +16,37 @@ export default class Dashboard extends Component{
             questions: [],
             oldQ: [],
             newQ: [],
-            newAnswer: ""
+            newAnswer: "",
+            myQuestions: [],
+            myOldQ: [],
+            myNewQ: []
         }
         this.deleteQuestion = this.deleteQuestion.bind(this)
         this.reRender = this.reRender.bind(this)
     }
 
-    //getting catch error on componentDidMount
-    //
+    
+    // componentDidMount(){
+    //     axios.get(`api/userData`).then(res => {
+    //         if(req.session.user){
+    //             if(req.session.user.admin){
+    //                 this.fetchAdminDash()
+    //             }else{this.fetchUserDash()}
+    //         }else{
+    //             res.redirect('/Login')
+    //         }
+    //     })
+    // }
+
     componentDidMount(){
-        this.reRender()
+        axios.get(`/api/userData`).then(res => {
+            if(req.session.user.admin){
+                
+            }
+        })
     }
 
-    reRender(){
+    fetchAdminDash(){
         const oldQuestions = []
         const newQuestions = []
         axios.get(`/api/questions`).then(response => {
@@ -46,6 +64,26 @@ export default class Dashboard extends Component{
                 console.log("getting new questions", this.state.newQ)
         }).catch(err => console.log("other error", err))
     }
+
+    fetchUserQuestions(){
+        const oldQuestions = []
+        const newQuestions = []
+        axios.get(`/api/questions/:id`).then(response => {
+            this.setState({
+                myQuestions: response.data
+            })
+        }).then(() => {
+            this.state.myQuestions.map(e => 
+                e.answer ? oldQuestions.push(e) : newQuestions.push(e))
+                this.setState({
+                    myOldQ: oldQuestions,
+                    myNewQ: newQuestions
+                })
+                console.log("getting old questions", this.state.oldQ)
+                console.log("getting new questions", this.state.newQ)
+        }).catch(err => console.log("other error", err))
+    }
+    
     // componentDidUpdate(){
     //     const oldQuestions = this.state.oldQ.slice()
     //     const newQuestions = this.state.newQ.slice()

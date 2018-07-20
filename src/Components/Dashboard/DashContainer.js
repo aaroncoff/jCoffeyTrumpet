@@ -10,44 +10,59 @@ export default class DashContainer extends Component{
     constructor(){
         super()
         this.state={
-            users: false
+            users: false,
+            userData: {}
         }
     }
 
     componentDidMount(){
         axios.get(`/api/userData`).then(res => {
             console.log('dashContainer componentDidMount hit',res.data)
-            // if(res.data.admin){
-            //     this.setState({ user: true })
-            // }
+        
+            if(res.data.admin){
+                this.setState({ users: true, userData: res.data })
+            }else{this.setState({userData: res.data})}
         })
     }
 
-    renderAdmin = () => {
-        console.log('renderAdmin hit at dashContainer')
-        return(
+    // renderAdmin = () => {
+    //     console.log('renderAdmin hit at dashContainer')
+    //     return(
      
-            <AdminDash user={this.state.users}/>
+    //         <AdminDash/>
        
-        )
-    }
+    //     )
+    // }
 
-    //renderUser is hitting
-    renderUser = () => {
-        console.log('renderUser hit in dashContainer')
-        return(
+   
+    // renderUser = () => {
+    //     console.log('renderUser hit in dashContainer')
+    //     return(
         
-            <UserDash user={this.state.users}/>
+    //         <UserDash/>
        
-        )
-    }
+    //     )
+    // }
 
     render(){
         console.log(this.state.users)
-        const {users} = this.state
+        const {users, userData} = this.state
+        // console.log('-----====---++++ dashcontainer render', userData)
+
+        // setTimeout(()=> {if(users&&userData != {}){
+        //     console.log('hit')
+        // }else if(userData){
+        //     console.log('hit2')
+        // }else{console.log('hit3', users, userData)}},2500)
+
+        const ternary =  !userData ? null : users ? <AdminDash user={userData}/> : <UserDash user={userData}/>
         return(
             <div>
-                {users ? this.renderAdmin() : this.renderUser()}
+                <h1>
+                    Hello
+                </h1>
+               {ternary}
+             
             </div>
         )
     }

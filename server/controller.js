@@ -5,10 +5,11 @@ module.exports = {
 
     register(req, res) {
         const dbInstance = req.app.get('db');
-        const { email, password } = req.body;
+        const { id, email, password } = req.body;
         console.log('req.body', req.body);
         bcrypt.hash(password, saltRounds).then(hashedPassword => {
             let user = {
+                id: id,
                 email: email,
                 password: hashedPassword
                 
@@ -23,7 +24,7 @@ module.exports = {
     
     login(req,res) {
         const dbInstance = req.app.get('db');
-        const { email, password } = req.body;
+        const { id, email, password } = req.body;
         console.log('req.body login', req.body);
         dbInstance.find_user(email).then(users => {
             console.log('users', users);
@@ -46,6 +47,8 @@ module.exports = {
     logout(req, res){
         req.session.destroy();
     },
+
+   
     
 
     getQuestions: (req, res) => {
@@ -57,23 +60,30 @@ module.exports = {
 
 
     addQuestion: (req, res) => {
-        console.log(req.body)
+        console.log('---------1', req.session.user)
+        console.log('-------2',req.body.body)
+        console.log('---------3', req.body.id)
         const dbInstance = req.app.get('db')
-        const {data} = req.body
-        dbInstance.add_question({
-            userId: req.session.user.userId,
-            body: data.body
-        }).then( questions => {
+        const {body} = req.body
+        const {id} = req.body
+        // const {id} = req.session.user.id
+        
+        dbInstance.add_question([
+            id,
+            body
+        ]).then( questions => {
+            console.log("---------4", body, id)
             console.log('1', questions);
             res.send(questions);
-    })
+    }).catch(err => {
+        (console.log('-|_|_|_|_|_ add_question db error', err))})
     },
 
     getData: (req,res) => {
         
         if(req.session.user){
             res.send(req.session.user)
-        }else{res.redirect('/')}
+        }else{res.redirect('/Login')}
     },
 
     getNewQuestions: (req, res) => {

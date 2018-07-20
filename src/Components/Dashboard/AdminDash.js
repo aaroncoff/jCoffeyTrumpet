@@ -20,7 +20,7 @@ export default class Dashboard extends Component{
            
         }
         this.deleteQuestion = this.deleteQuestion.bind(this)
-        this.reRender = this.reRender.bind(this)
+        this.fetchAdminDash = this.fetchAdminDash.bind(this)
     }
 
     

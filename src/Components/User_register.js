@@ -50,8 +50,8 @@ export default class UserRegister extends Component {
     register = (e) => {
         e.preventDefault();
         this.setState({message: null });
-        const password = this.state.password;
         const email = this.state.email;
+        const password = this.state.password;
         axios.post(`/api/register`, {
             email,
             password,

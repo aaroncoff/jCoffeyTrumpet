@@ -25,7 +25,7 @@ class UserAuth extends Component {
             //below not hitting
             console.log('login method hitting', this.props)
             //below line showing up in error.  may not like the redirect
-            this.props.history.push('/userdash')
+            this.props.history.push('/Dash')
            
             //below error logging in console
         }).catch(err => console.log('Axios Login error----------', err));

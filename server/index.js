@@ -35,6 +35,7 @@ massive( process.env.CONNECTION_STRING).then( dbInstance => {
 app.get(`/api/questions`, controller.getQuestions);
 app.get('/api/newQuestions', controller.getNewQuestions);
 app.get('/api/answeredQ', controller.getAnsweredQuestions);
+app.get(`/api/userData`,controller.getData);
 app.post(`/api/questions`, controller.addQuestion);
 app.get('/api/questions/:id', controller.getUserQuestions);
 app.post(`/api/answerQues`, controller.answerQues);

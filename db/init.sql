@@ -1,6 +1,6 @@
 CREATE TABLE trumpet_users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR UNIQUE,
+    email VARCHAR UNIQUE,
     password VARCHAR
 );
 

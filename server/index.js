@@ -12,7 +12,6 @@ const parseString = require('xml2js').parseString;
 const PORT = 3400;
 const axios = require('axios');
 const app = express();
-const goodReadsJSONResponse = require('goodreads-json-api');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -54,45 +53,16 @@ app.delete(`/api/deleteQ/:id`, controller.deleteQuestion);
 app.get("/test", (req,res)=> {
     var xml = `<root>Hello xml2js!</root>`
     axios.get('https://goodreads.com/quotes/list/84635291-ac').then(quotes => {
-        const options = {
-            xml: {
-                normalizeWhitespace: true
-            }
-        }
-        const statusCode = res.statusCode;
-        const contentType = res.headers['content-type'];
-        let error;
-        if (statusCode !== 200){
-            error = new Error('Request Failed./n' + `Status Code: ${statusCode}`);
-        }
-        if (error) {
-            console.log("------1", error.message);
-            res.resume();
-            return;
-        }
-        res.setDefaultEncoding('utf8');
-        let rawData = '';
-        res.on('data', (chunk) => rawData += chunk);
-        res.on('end', () => {
-            try {
-                const resp = goodReadsJSONResponse.convertToJson(rawData);
-                console.log("--------2",resp)
-            } catch (e) {
-                console.log("----------3",e.message);
-            }
-        });
-            // var string = JSON.stringify(quotes.data,function (err, result) {
-            //     console.log(result);
-            //     return result
-             }).on('error', (e) => {
-                 console.log("---------4",`Got error: ${e.message}`);
+            var string = JSON.stringify(quotes.data,function (err, result) {
+                console.log(result);
+                return result
              })
-            //  var string2 = JSON.parse(string)
-            //  console.log(string, string2)
-            //  res.send("test")
+             var string2 = JSON.parse(string)
+             console.log(string, string2)
+             res.send("test")
             // this.jsonParse(quotes.data)
         })
-
+})
 
 
 

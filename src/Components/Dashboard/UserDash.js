@@ -60,6 +60,12 @@ export default class UserDash extends Component{
 
         // myQuestions.length ? null : this.props.user.id ? this.fetchMyQuestions(this.props.user.id) : null
 
+        if(!myQuestions.length){
+            if(this.props.user.id){
+            this.fetchMyQuestions(this.props.user.id)
+            }
+        }
+
         var qMap =  myOldQ.map((myOldQ, i) => {
             console.log(myOldQ);
 
@@ -69,9 +75,9 @@ export default class UserDash extends Component{
                 <div key={i}>
                     
                     
-                    Question: {myOldQ.body}
+                   My Question: {myOldQ.body}
                     {" "}
-                    Answer: {myOldQ.answer}
+                   Josh's Answer: {myOldQ.answer}
 
                 </div>
             )

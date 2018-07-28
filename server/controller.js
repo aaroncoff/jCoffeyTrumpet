@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const parse = require('xml2js').parseString;
 let saltRounds = 6;
 
 module.exports = {
@@ -157,10 +158,22 @@ module.exports = {
             console.log(id, "deleting")
             res.send(questions)
         }).catch(err => console.log("deleteQuestion controller error", err))
+    },
+
+    parseQuotes: (req) => {
+        console.log(req.body)
+        parse(req, function(result){
+            JSON.stringify(result)
+        })
     }
 
+
     
-       
+
+    
+    // .then(res => {
+    //     JSON.stringify(res)
+    //     res.send(res)
        
 
 }

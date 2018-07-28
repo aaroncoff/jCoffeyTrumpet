@@ -9,8 +9,8 @@ export default class Login extends Component{
         return(
             <div>
                 <header className="App-header">
-                    <Auth {...this.props}/>
-                    <Register/>
+                    {/* <Auth {...this.props}/>
+                    <Register/> */}
                     <UserAuth {...this.props}/>
                     <UserRegister/>
                     

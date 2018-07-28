@@ -6,28 +6,39 @@ import axios from 'axios';
 export default class YouTube extends Component {
     constructor(){
     super()
-    this.state={videos: []}
+    // this.state={videos: []}
+    this.state={
+        playlist:[]
+    }
     }
    
-
+    // key=AIzaSyBNgtsI3_FrVggDfdcsE97D5zteUZ3iCAk
+    // list=PLBY0vpgliIZCmagbrg5vseRwy_JycokcI
+    
     componentDidMount(){
-        axios.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=q_6D59EPC4c&key=AIzaSyBNgtsI3_FrVggDfdcsE97D5zteUZ3iCAk').then( res => {
-            console.log(res.data.items);
-            this.setState({videos: res.data.items})
+       this.fetchVideos()
+    }
+
+    fetchVideos = () => {
+        axios.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=PLBY0vpgliIZCmagbrg5vseRwy_JycokcI&key=AIzaSyBNgtsI3_FrVggDfdcsE97D5zteUZ3iCAk').then( res => {
+            console.log(res.data);
+            this.setState({playlist: res.data.items})
         }).catch(err => console.log("youtube componentDidMount error", err))
     }
     
     render() {
         console.log(this.state)
-        const {videos} = this.state
+        const {playlist} = this.state
         return(
             <div>
-                {videos.map((video, i) => {
-                    console.log(video);
+                {playlist.map((playlist, i) => {
+                    console.log(playlist);
 
                     return(
                         <div key={i}>
-                            <iframe src={`https://www.youtube.com/embed/${video.id}`}></iframe>
+                            {/* <iframe src={`https://www.youtube.com/embed/${playlist.id}`}></iframe> */}
+                            <iframe src={`https://www.youtube.com/embed/${playlist.snippet.resourceId.videoId}`}></iframe>
+                            {/* <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLBY0vpgliIZCmagbrg5vseRwy_JycokcI"></iframe> */}
                      
                            
                         </div>

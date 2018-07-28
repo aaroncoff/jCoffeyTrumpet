@@ -10,15 +10,20 @@ import Contact from './Contact';
 import About from './NavComp/About';
 import Login from './NavComp/Login';
 import DashContainer from './Components/Dashboard/DashContainer';
+import Home from './Home';
+import BookGig from './Components/Booking/bookGig';
+import BookLesson from './Components/Booking/bookLesson';
 
 
 
 const routes = (
     <Switch>
-        <Route exact path ='/' component={App}/>
+        <Route exact path ='/' component={Home}/>
         <Route path = '/qahome' component={QaHome}/>
         <Route path = '/Music' component={Media}/>
         <Route path = '/Contact' component={Contact}/>
+        <Route path = '/Lesson' component={BookLesson}/>
+        <Route path = '/Gig' component={BookGig}/>
         <Route path = '/About' component={About}/>
         <Route path = '/Login' component={Login}/>
         <Route path = '/questions' component={Question}/>

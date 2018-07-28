@@ -15,15 +15,21 @@ import { Link } from 'react-router-dom';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    console.log(window)
+  }
+
   render() {
     return (
       <div className="App">
 
-        <Link to='/'>Home | </Link>
-        <Link to='/Dash'>My Dashboard</Link>
-        <Link to='/Music'>Josh's Music | </Link>
-        <Link to='/Contact'>Request a Lesson or Gig | </Link>
-        <Link to='/About'>About Josh |</Link>
+        <Link to='/'>Home  |  </Link>
+        <Link to='/Music'>Josh's Music  |  </Link>
+        <Link to='/Contact'>Contact Josh  |  </Link>
+        <Link to='/Lesson'>Book Josh For a Lesson  |  </Link>
+        <Link to='/Gig'>Book Josh for a Gig  |  </Link>
+        <Link to='/Dash'>My Dashboard  |  </Link>
         <Link to='/Login'>Login</Link>
         
         {routes}

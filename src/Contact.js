@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import nodemailer from 'nodemailer';
 
+
+//send mail lottiefile
+//https://www.lottiefiles.com/1972-send
+
+//payment lottiefile
+//https://www.lottiefiles.com/1758-credit-card
+
+//loading lottiefile
+//https://www.lottiefiles.com/987-estimate
+
+//dna lottiefile
+//https://www.lottiefiles.com/946-dna
+
 export default class Contact extends Component{
     constructor(){
         super()

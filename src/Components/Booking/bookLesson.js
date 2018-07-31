@@ -14,20 +14,6 @@ export default class BookLesson extends Component{
 
 
 
-        // const a = document.createElement("a")
-        // const script = document.createElement("script")
-
-        // a.id = "TTE-bfc81293-892a-4c07-94ad-fdf6393d5dc1";
-        // a.href = "https://10to8.com/book/kmgmbhzmnqschmfaxrczv-free/";
-        // a.target = "_blank";
-
-        // script.src = "https://d3saea0ftg7bjt.cloudfront.net/embed/js/embed.min.js";
-
-        // window.TTE.init({
-        //     targetDivId: "https://d3saea0ftg7bjt.cloudfront.net/embed/js/embed.min.js",
-        //     uuid: "bfc81293-892a-4c07-94ad-fdf6393d5dc1",
-        //     service: 499978
-        // });
 
     }
 

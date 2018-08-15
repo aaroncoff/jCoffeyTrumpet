@@ -1,5 +1,172 @@
+
+
+.topparent {
+  background-color: black;
+  width: 100vw;
+  height: 10vh;
+  /* font-family: 'Arial'; */
+  font-size: 55px;
+}
+
+.topchild {
+
+  width: 75%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  display: flex;
+  height: 10vh;
+
+
+ 
+
+  
+  background-position: center;
+  position: relative;
+  justify-content: center; 
+  
+}
+
+@media(min-width:450px) {
+  .topparent{
+    height:12vh;
+    font-size: 60px;
+  }
+
+  .topchild{
+    height:12vh;
+  }
+}
+
+
+
+.bodyparent {
+  background-color: black;
+  width: 100w;
+  min-height: 80vh;
+}
+
+.midparent {
+  background-color: black;
+  width: 100%;
+  /* height: 40vh; */
+}
+
+.midchild {
+  width: 100%;
+  margin: 0 auto;
+  background-color: black;
+  display: block;
+  height: 250px;
+  /* height: 50vh; */
+}
+
+@media(min-width: 450px) {
+  .midchild {
+    /* width: 75%; */
+    height: 325px;
+    margin: 0 auto;
+    background-color: black;
+  }
+}
+
+@media(min-width: 600px) {
+  .midchild {
+    /* width: 75%; */
+    height: 400px;
+    margin: 0 auto;
+    background-color: black;
+  }
+}
+
+@media(min-width: 700px) {
+  .midchild {
+    width: 75%;
+    height: 450px;
+    margin: 0 auto;
+    background-color: black;
+    font-size: 70pt;
+  }
+}
+
+@media(min-width: 1000px) {
+  .midchild {
+    width: 75%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: black;
+  }
+}
+
+@media(min-width: 1100px) {
+  .midchild {
+    width: 75%;
+    height: 600px;
+    margin: 0 auto;
+    background-color: black;
+  }
+}
+
+.navparent {
+  width: 100%;
+  margin: 0 auto;
+  background-color: black; 
+  height:200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;  */
+}
+
+.navchild {
+  width: 75%;
+  margin: 0 auto;
+  height:200px;
+  display: block !important;
+}
+
+.bodychild {
+  width: 75%;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+.about {
+  width: 100%;
+}
+
+.hero{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  min-height: 30vh;
+}
+
+.first {
+  font-weight: 200;
+  font-family: 'Raleway', sans-serif;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+.last {
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+/* 
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -20,9 +187,4 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+} */

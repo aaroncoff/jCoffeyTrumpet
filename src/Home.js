@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import "./App.css";
 import About from './NavComp/About';
 import Quotes from './Components/Quotes';
+
 
 export default class Home extends Component{
     render(){
         return(
-            <div>
+            // <div classname="topouter">
+            //     <div classname="topinner">
+                
                 <About/>
-                <Quotes/>
-            </div>
+               
+            //     </div>
+            // </div>
+
         )
     }
 }

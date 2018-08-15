@@ -9,6 +9,7 @@ const bcrypt = require('bcryptjs');
 // const nodemailer = require('nodemailer');
 const session = require('express-session');
 const parseString = require('xml2js').parseString;
+const goodReadsJSONResponse = require('goodreads-json-api');
 const PORT = 3400;
 const axios = require('axios');
 const app = express();
@@ -52,64 +53,40 @@ app.put('/api/questions/:id', controller.updateQuestion);
 app.delete(`/api/deleteQ/:id`, controller.deleteQuestion);
 app.get("/test", (req,res)=> {
     var xml = `<root>Hello xml2js!</root>`
-    axios.get('https://goodreads.com/quotes/list/84635291-ac').then(quotes => {
-            // Test with an element.
-var initElement = document.getElementsByTagName("html")[0];
-var json = mapDOM(initElement, true);
-console.log(json);
-
-// Test with a string.
-initElement = "<div><span>text</span>Text2</div>";
-json = mapDOM(initElement, true);
-console.log(json);
-
-function mapDOM(element, json) {
-    var treeObject = {};
-
-    // If string convert to document Node
-    if (typeof element === "string") {
-        if (window.DOMParser) {
-              parser = new DOMParser();
-              docNode = parser.parseFromString(element,"text/xml");
-        } else { // Microsoft strikes again
-              docNode = new ActiveXObject("Microsoft.XMLDOM");
-              docNode.async = false;
-              docNode.loadXML(element); 
-        } 
-        element = docNode.firstChild;
-    }
-
-    //Recursively loop through DOM elements and assign properties to object
-    function treeHTML(element, object) {
-        object["type"] = element.nodeName;
-        var nodeList = element.childNodes;
-        if (nodeList != null) {
-            if (nodeList.length) {
-                object["content"] = [];
-                for (var i = 0; i < nodeList.length; i++) {
-                    if (nodeList[i].nodeType == 3) {
-                        object["content"].push(nodeList[i].nodeValue);
-                    } else {
-                        object["content"].push({});
-                        treeHTML(nodeList[i], object["content"][object["content"].length -1]);
-                    }
-                }
+    axios.get('https://goodreads.com/quotes/list/84635291-ac').then((res) => {
+        const options = {
+            xml: {
+                normalizeWhitespace: true
             }
         }
-        if (element.attributes != null) {
-            if (element.attributes.length) {
-                object["attributes"] = {};
-                for (var i = 0; i < element.attributes.length; i++) {
-                    object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
-                }
-            }
+        const statusCode = res.statusCode;
+        const contentType = res.headers['content-type'];
+        let error;
+        if (statusCode !== 200) {
+            error = new Error('Request Failed.\n' +
+                `Status Code: ${statusCode}`);
         }
-    }
-    treeHTML(element, treeObject);
-
-    return (json) ? JSON.stringify(treeObject) : treeObject;
-}
-        })
+        if (error) {
+            console.log(error.message);
+            // consume response data to free up memory
+            res.resume();
+            return;
+        }
+    
+        res.setEncoding('utf8');
+        let rawData = '';
+        res.on('data', (chunk) => rawData += chunk);
+        res.on('end', () => {
+            try {
+                const resp = goodReadsJSONResponse.convertToJson(rawData);
+                console.log(resp)
+            } catch (e) {
+                console.log(e.message);
+            }
+        });
+    }).on('error', (e) => {
+        console.log(`Got error: ${e.message}`);
+    })
 })
 
 

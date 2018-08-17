@@ -115,15 +115,53 @@
   color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;  */
+  /* justify-content: center;   */
 }
 
 .navchild {
   width: 75%;
   margin: 0 auto;
   height:200px;
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center;
+  font-size: 30pt;
 }
+
+.primary-nav {
+  display: none;
+ 
+}
+
+@media(min-width: 600px ) {
+  .navchild {
+    flex-direction: row;
+  }
+}
+
+.burger {
+  background-color: black;
+  color: white;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+
+ 
+
+
+}
+
+#burger {
+  display: none;
+}
+
+#burger:checked ~ nav.primary-nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 
 .bodychild {
   width: 75%;
@@ -138,6 +176,7 @@
 
 .about {
   width: 100%;
+  color: white;
 }
 
 .hero{

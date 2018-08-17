@@ -38,20 +38,50 @@ class App extends Component {
 
             <div className="midparent">
               <div className="midchild">
-                <img src={require('./Media/Josh/Josh1.jpg')} alt={"Josh"} className="hero"/>
+                <img src={require('./Media/Josh/Joshua1.jpg')} alt={"Josh"} className="hero"/>
               </div>
             </div>
 
        
           <div className="navparent">
           <div className="navchild">
-            <Link to='/'>Home</Link>
-            <Link to='/Music'>Josh's Music</Link>
-            <Link to='/Contact'>Contact Josh</Link>
-            <Link to='/Lesson'>Book Josh For a Lesson</Link>
-            <Link to='/Gig'>Book Josh for a Gig</Link>
-            <Link to='/Dash'>My Dashboard</Link>
-            <Link to='/Login'>Login</Link>
+              <input id="burger" type="checkbox"/>
+              <label for="burger">MENU</label>
+                  <nav className='primary-nav'>
+                    <Link to='/'>Home</Link>
+                    <Link to='/Music'>Josh's Music</Link>
+                    <Link to='/Contact'>Contact Josh</Link>
+                    <Link to='/Lesson'>Book Josh For a Lesson</Link>
+                    <Link to='/Gig'>Book Josh for a Gig</Link>
+                    <Link to='/Dash'>My Dashboard</Link>
+                    <Link to='/Login'>Login</Link>
+                  </nav>
+
+
+
+              {/* <nav className="primary-nav">
+                <Link to='/'>Home</Link>
+                <Link to='/Music'>Josh's Music</Link>
+                <Link to='/Contact'>Contact Josh</Link>
+                <Link to='/Lesson'>Book Josh For a Lesson</Link>
+                <Link to='/Gig'>Book Josh for a Gig</Link>
+                <Link to='/Dash'>My Dashboard</Link>
+                <Link to='/Login'>Login</Link>
+              </nav> */}
+
+
+
+                {/* <a>Home</a>
+                <a>Josh's Music</a>
+                <a>Contact Josh</a>
+                <a>Book Josh For a Lesson</a>
+                <a>Book Josh For a Gig</a>
+                <a>My Dashboard</a>
+                <a>Login</a>   */}
+
+
+
+
           </div>
 
           </div>

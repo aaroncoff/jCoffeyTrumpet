@@ -8,13 +8,13 @@ export default class Login extends Component{
     render(){
         return(
             <div>
-                <header className="App-header">
-                    {/* <Auth {...this.props}/>
-                    <Register/> */}
+                <div className="inparent">
+                    <header className="App-header">
                     <UserAuth {...this.props}/>
                     <UserRegister/>
                     
-                </header>
+                    </header>
+                </div>
                 
             </div>
         )

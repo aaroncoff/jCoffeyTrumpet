@@ -1,0 +1,9 @@
+.videoparent {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.videochild {
+    width: 75%;
+    margin: 0 auto;
+}

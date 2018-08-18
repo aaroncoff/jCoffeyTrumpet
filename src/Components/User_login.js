@@ -33,16 +33,14 @@ class UserAuth extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <div>
-                        <div></div>
-                        
+                <div className="loginP">
                         <form>
-                            <input type='text' onChange={e => this.handleLoginName(e.target.value)} placeholder="login name"/>
-                            <input type='password' onChange={e => this.handlePassword(e.target.value)} placeholder="password"/>
+                            <p>Login</p>
+                            <input type='text' className="loginName" onChange={e => this.handleLoginName(e.target.value)} placeholder="login name"/>
+                            <input type='password' className="loginPw" onChange={e => this.handlePassword(e.target.value)} placeholder="password"/>
                             <button className='auth-login-btn' onClick={(e) => this.login(e)}>User Login</button>
                         </form>
-                    </div>
+                    
                 </div>
             </div>
         );

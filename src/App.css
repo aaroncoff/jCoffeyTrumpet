@@ -1,4 +1,6 @@
-
+/* * {
+  background-color: black;
+} */
 
 .topparent {
   background-color: black;
@@ -10,7 +12,7 @@
 
 .topchild {
 
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   background-color: black;
   color: white;
@@ -38,18 +40,68 @@
   }
 }
 
+@media(min-width:700px) {
+  .topparent, .topchild {
+    font-size: 100px;
+    height: 19vh;
+  }
+}
+
 
 
 .bodyparent {
-  background-color: black;
+  background-color: black !important;
   width: 100w;
   min-height: 80vh;
+  margin: 0 auto;
+  margin-top: -150px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.bodychild {
+  width: 75%;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  justify-content: center;
+}
+
+/* 
+.bodychild {
+  background-color: black;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: -150px;
+  display: flex;
+  flex-direction: column;
+
+} */
+
+@media(min-width: 575px) {
+  .bodyparent, .bodychild {
+    margin-top: 0px;
+    background-color: black;
+  }
+}
+
+@media(min-width: 850px) {
+  .bodyparent, .bodychild {
+    padding-top: 30px;
+    background-color: black;
+  }
 }
 
 .midparent {
   background-color: black;
   width: 100%;
-  /* height: 40vh; */
+  height: 250px;
 }
 
 .midchild {
@@ -58,6 +110,7 @@
   background-color: black;
   display: block;
   height: 250px;
+
   /* height: 50vh; */
 }
 
@@ -70,7 +123,7 @@
   }
 }
 
-@media(min-width: 600px) {
+@media(min-width: 575px) {
   .midchild {
     /* width: 75%; */
     height: 400px;
@@ -81,7 +134,7 @@
 
 @media(min-width: 700px) {
   .midchild {
-    width: 75%;
+    width: 100%;
     height: 450px;
     margin: 0 auto;
     background-color: black;
@@ -91,7 +144,7 @@
 
 @media(min-width: 1000px) {
   .midchild {
-    width: 75%;
+    width: 100%;
     height: 500px;
     margin: 0 auto;
     background-color: black;
@@ -119,60 +172,189 @@
 }
 
 .navchild {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   height:200px;
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  font-size: 30pt;
+  font-size: 10pt;
+  font-family: 'Raleway', sans-serif;
+  
 }
 
-.primary-nav {
-  display: none;
- 
-}
 
-@media(min-width: 600px ) {
-  .navchild {
-    flex-direction: row;
+
+@media(min-width: 950px){
+  .navparent, .navchild {
+    padding-bottom: 50px;
   }
 }
 
-.burger {
+@media(max-width: 980px){
+  .navparent, .navchild {
+    font-size: 8pt;
+  }
+}
+
+/* @media(min-width: 850px) {
+  .navparent, .navchild {}
+} */
+
+.menu-on {
   background-color: black;
   color: white;
-  position: fixed;
+  position: absolute;
   right: 0;
   left: 0;
   z-index: 1000;
-
- 
-
+  font-size: 30pt
 
 }
 
-#burger {
+.menu-off {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+
+}
+
+/* .primparent {
+  width: 100%;
+  margin: 0 auto;
+} */
+
+.primary-nav {
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+  /* position: fixed; */
+  padding-top: 30px;
+  z-index: 1002;
+  height: auto;
+  margin-top: -50px;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+@media(min-width: 575px) {
+  .primary-nav {
+    margin-top: 50px;
+    font-size: 10pt;
+  }
+}
+
+@media(min-width: 700px) {
+  .primary-nav {
+    margin-top: 100px;
+    /* padding-bottom: 1000px; */
+  }
+}
+
+
+@media(min-width: 850px) {
+  .primary-nav {
+    margin-top: 200px;
+    /* padding-bottom: 1000px; */
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  /* font-weight: bold; */
+  padding-left: 15px;
+  margin-bottom: 5px;
+}
+
+@media(min-width: 575px) {
+a {
+  font-weight: bold;
+  font-size: 10pt;
+}
+}
+
+@media(min-width: 850px) {
+  a {
+    font-weight: bold;
+    font-size: 12pt;
+  }
+  }
+
+.primary-nav Link {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  color: white;
+
+}
+
+#toggle-menu {
   display: none;
 }
 
-#burger:checked ~ nav.primary-nav {
+#toggle-menu:checked ~ nav.primary-nav {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-
-.bodychild {
-  width: 75%;
-  background-color: black;
-  color: white;
-  margin: 0 auto;
-  display: flex;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+#toggle-menu:checked ~ .menu-off {
+  display: block;
 }
+
+#toggle-menu:checked ~ .menu-on {
+  display: none;
+}
+
+@media screen and (min-width: 575px) {
+  .menu-on, .menu-off {
+    display: none;
+  }
+
+  nav.primary-nav {
+    display: block;
+    position: static;
+  }
+
+  nav.primary-nav Link {
+    display: inline-block;
+
+  }
+}
+
+/* @media(min-width: 600px ) {
+  .navchild {
+    flex-direction: row;
+  }
+  #menu-on {
+    display: none;
+  }
+} */
+
+/* 
+
+#menu-on {
+  position: fixed;
+  z-index: 1001;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .about {
   width: 100%;
@@ -183,7 +365,7 @@
   width: 100%;
   margin: 0 auto;
   display: flex;
-  min-height: 30vh;
+  min-height: 0vh;
 }
 
 .first {
@@ -227,3 +409,112 @@
 .App-intro {
   font-size: large;
 } */
+
+/* .videoparent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.videochild {
+  width: 75%;
+  margin: 0 auto;
+} */
+
+.video {
+  /* padding-bottom: 50px; */
+  padding-top: 50px;
+} 
+
+.header-parent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-header {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-size: 15pt;
+}
+
+.form-parent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 300px;
+}
+
+@media(min-width: 750px) {
+  .input {
+  width: 500px;
+  }
+}
+
+.input > * {
+  margin-bottom: 10px;
+}
+
+.input > button {
+  border-radius: 5%;
+  border: none;
+  width: 30%;
+  margin: 0 auto;
+  height: 30px;
+  font-weight: bolder;
+
+}
+
+.message {
+  height: 150px;
+}
+
+.qbtn > a {
+  color: black;
+}
+
+.loginP {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.loginName {
+  width: 250px;
+}
+
+.loginPw {
+  width: 250px;
+}
+
+.registerP {
+  padding-bottom: 100px;
+  display: block;
+  width: 250px;
+}
+
+.registerName {
+  width: 250px;
+}
+
+.registerPw {
+  display: block;
+  width: 250px;
+}
+
+.inparent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-header {
+  width: 260px;
+  margin: 0 auto;
+  justify-content: center;
+}

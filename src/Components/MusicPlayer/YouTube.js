@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 //api key = AIzaSyCXGFOszsv0wEaa4XUtUnR8IFGWs49kdrM
 
 export default class YouTube extends Component {
@@ -35,12 +36,16 @@ export default class YouTube extends Component {
                     console.log(playlist);
 
                     return(
-                        <div key={i}>
-                            {/* <iframe src={`https://www.youtube.com/embed/${playlist.id}`}></iframe> */}
-                            <iframe src={`https://www.youtube.com/embed/${playlist.snippet.resourceId.videoId}`}></iframe>
-                            {/* <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLBY0vpgliIZCmagbrg5vseRwy_JycokcI"></iframe> */}
+                        <div className="videoParent">
+                            <div className="videochild">
+                                <div key={i} className="video">
+                                {/* <iframe src={`https://www.youtube.com/embed/${playlist.id}`}></iframe> */}
+                                <iframe src={`https://www.youtube.com/embed/${playlist.snippet.resourceId.videoId}`}></iframe>
+                                {/* <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLBY0vpgliIZCmagbrg5vseRwy_JycokcI"></iframe> */}
                      
                            
+                                </div>
+                            </div>
                         </div>
                     )
                 })}

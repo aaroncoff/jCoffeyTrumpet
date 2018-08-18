@@ -48,12 +48,14 @@ export default class Contact extends Component{
         return(
         
                 <div>
-                    <form>
-                    <input id="name" placeholder="Your Name" onChange={(e)=>this.setState({name: e.target.value})}/>
-                    <input id="email" placeholder="Your email address" onChange={(e)=>this.setState({email: e.target.value})}/>
-                    <textarea id="text" placeholder="Message to Josh" onChange={(e)=>this.setState({text: e.target.value})}></textarea>
-                    <button onClick={this.handleSubmitButton}>Submit</button>
-                    </form>
+                    <div className="form-parent">
+                        <form className="input">
+                            <input id="name" placeholder="Your Name" onChange={(e)=>this.setState({name: e.target.value})}/>
+                            <input id="email" placeholder="Your email address" onChange={(e)=>this.setState({email: e.target.value})}/>
+                            <textarea className="message" id="text" placeholder="Message to Josh" onChange={(e)=>this.setState({text: e.target.value})}></textarea>
+                            <button onClick={this.handleSubmitButton}>Submit</button>
+                        </form>
+                    </div>
                 </div>
         )
     }

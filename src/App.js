@@ -45,17 +45,34 @@ class App extends Component {
        
           <div className="navparent">
           <div className="navchild">
-              <input id="burger" type="checkbox"/>
-              <label for="burger">MENU</label>
+
+
+              <input id="toggle-menu" type="checkbox"/>
+              <label for="toggle-menu" className="menu-on">MENU</label>
+
+              <label for="toggle-menu" className="menu-off"></label>
+
                   <nav className='primary-nav'>
-                    <Link to='/'>Home</Link>
-                    <Link to='/Music'>Josh's Music</Link>
-                    <Link to='/Contact'>Contact Josh</Link>
-                    <Link to='/Lesson'>Book Josh For a Lesson</Link>
-                    <Link to='/Gig'>Book Josh for a Gig</Link>
-                    <Link to='/Dash'>My Dashboard</Link>
-                    <Link to='/Login'>Login</Link>
+                    <Link to='/'>Home     </Link>
+                    <Link to='/Music'>Josh's Music </Link>
+                    <Link to='/Contact'>Contact Josh </Link>
+                    <Link to='/Lesson'>Book Josh For a Lesson </Link>
+                    <Link to='/Gig'>Book Josh for a Gig </Link>
+                    <Link to='/Dash'>My Dashboard </Link>
+                    <Link to='/Login'>Login </Link>
                   </nav>
+
+                {/* <div className="primparent">
+                <nav className='primary-nav'>
+                    <Link to='/'>Home     </Link>
+                    <Link to='/Music'>Josh's Music </Link>
+                    <Link to='/Contact'>Contact Josh </Link>
+                    <Link to='/Lesson'>Book Josh For a Lesson </Link>
+                    <Link to='/Gig'>Book Josh for a Gig </Link>
+                    <Link to='/Dash'>My Dashboard </Link>
+                    <Link to='/Login'>Login </Link>
+                  </nav>
+                </div> */}
 
 
 

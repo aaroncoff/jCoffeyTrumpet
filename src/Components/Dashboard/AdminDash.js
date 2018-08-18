@@ -132,12 +132,14 @@ export default class Dashboard extends Component{
         
         return(
             <div>
-                <h1>Dashboard</h1>
-               *** New Questions ***
-                {DispNewQ}
+                <div className="adminq">
+                    <h1>Dashboard</h1>
+                    *** New Questions ***
+                    {DispNewQ}
 
-               *** Old Questions ***
-                {DispOldQ} 
+                    *** Old Questions ***
+                    {DispOldQ} 
+                </div>
                 
                 
               

@@ -87,21 +87,20 @@ export default class UserDash extends Component{
         return(
             
             <div>
-                <Link to='/qahome'>Ask Josh | </Link>
+                <div className="qparent">
                 {qMap}
-                <form>
-                
-                
-                {/* <textarea className="body" value={this.state.body} placeholder="Ask Josh a Question" onChange={(e) => this.setState({body: e.target.value})} ></textarea>
-                <button onClick={(e) => this.submit(e)}>Submit</button> */}
 
-                <div>
-               
-            </div>
-        
-            
-                
-            </form>
+                    <button className="qbtn"><Link to='/qahome'>Ask Josh Another Question</Link></button>
+
+
+
+                    {/* <textarea className="body" value={this.state.body} placeholder="Ask Josh a Question" onChange={(e) => this.setState({body: e.target.value})} ></textarea>
+                    <button onClick={(e) => this.submit(e)}>Submit</button> */}
+
+
+                </div>
+
+
             </div>
            
                  

@@ -66,13 +66,18 @@ export default class UserRegister extends Component {
         const { email, password } = this.state;
         return (
             <div>
-                <form>
-                    <input type='text' onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/>
-                    {/* <input type='text' onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/> */}
-                    <input type='password' onChange={e => this.handleRegPassword(e.target.value)} placeholder='password' value={password}/>
-                    <button onClick={(e) => this.register(e)}>User Register</button>
-                </form>
+                <div className="registerP">
+                    <form>
+                        <p>New User Register</p>
+                        <input type='text' className="registerName" onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/>
+                        {/* <input type='text' onChange={e => this.handleRegEmail(e.target.value)} placeholder='email' value={email}/> */}
+                        <input type='password'className="registerPw" onChange={e => this.handleRegPassword(e.target.value)} placeholder='password' value={password}/>
+                        <button onClick={(e) => this.register(e)}>User Register</button>
+                    </form>
+                </div>
             </div>
         );
     }
 }
+
+

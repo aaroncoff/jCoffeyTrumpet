@@ -13,6 +13,10 @@ import DashContainer from './Components/Dashboard/DashContainer';
 import Home from './Home';
 import BookGig from './Components/Booking/bookGig';
 import BookLesson from './Components/Booking/bookLesson';
+import Stripe from './Components/Dashboard/Stripe';
+import UserQ from './Components/Dashboard/UserQ';
+import BookNav from './Components/Booking/bookNav';
+import QaBlog from './Components/QAblog';
 
 
 
@@ -29,6 +33,10 @@ const routes = (
         <Route path = '/questions' component={Question}/>
         <Route path = '/updateQ' component={updateQ}/>
         <Route path = '/Dash' component={DashContainer}/>
+        <Route path = '/Wallet' component={Stripe}/>
+        <Route path = '/MyQ' component={UserQ}/>
+        <Route path = '/Booking' component={BookNav}/>
+        <Route path = '/QAblog' component={QaBlog}/>
     </Switch>
 );
 

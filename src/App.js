@@ -55,9 +55,8 @@ class App extends Component {
                   <nav className='primary-nav'>
                     <Link to='/'>Home     </Link>
                     <Link to='/Music'>Josh's Music </Link>
+                    <Link to='/QAblog'>Q&A Blog</Link>
                     <Link to='/Contact'>Contact Josh </Link>
-                    <Link to='/Lesson'>Book Josh For a Lesson </Link>
-                    <Link to='/Gig'>Book Josh for a Gig </Link>
                     <Link to='/Dash'>My Dashboard </Link>
                     <Link to='/Login'>Login </Link>
                   </nav>

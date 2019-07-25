@@ -39,6 +39,12 @@ export default class Contact extends Component{
         }
         axios.post(`/api/sendEmail`, body).then(response => {
             console.log('-----response', response.data)
+            this.setState({
+                name: '',
+                email: '',
+                text: ''
+            })
+            alert("Your message has been sent")
         }).catch(err => {
             console.log('----------email send error', err)
         })
@@ -50,9 +56,9 @@ export default class Contact extends Component{
                 <div>
                     <div className="form-parent">
                         <form className="input">
-                            <input id="name" placeholder="Your Name" onChange={(e)=>this.setState({name: e.target.value})}/>
-                            <input id="email" placeholder="Your email address" onChange={(e)=>this.setState({email: e.target.value})}/>
-                            <textarea className="message" id="text" placeholder="Message to Josh" onChange={(e)=>this.setState({text: e.target.value})}></textarea>
+                            <input id="name" placeholder="Your Name" onChange={(e)=>this.setState({name: e.target.value})} value={this.state.name}/>
+                            <input id="email" placeholder="Your email address" onChange={(e)=>this.setState({email: e.target.value})} value={this.state.email}/>
+                            <textarea className="message" id="text" placeholder="Message to Josh" onChange={(e)=>this.setState({text: e.target.value})} value={this.state.text}></textarea>
                             <button onClick={this.handleSubmitButton}>Submit</button>
                         </form>
                     </div>

@@ -48,9 +48,9 @@ class App extends Component {
 
 
               <input id="toggle-menu" type="checkbox"/>
-              <label for="toggle-menu" className="menu-on">MENU</label>
+              <label htmlFor="toggle-menu" className="menu-on">MENU</label>
 
-              <label for="toggle-menu" className="menu-off"></label>
+              <label htmlFor="toggle-menu" className="menu-off"></label>
 
                   <nav className='primary-nav'>
                     <Link to='/'>Home     </Link>
